@@ -2,18 +2,18 @@ from bs4 import BeautifulSoup
 import requests
 from csv import writer
 
-number = 1
+number = 26
 # Get url web which contains data for scrape
 url = f"https://www.pararius.com/apartments/amsterdam/page-{number}"
 page = requests.get(url)
 print(page)
 
-# Create object
+# Create object soup
 soup = BeautifulSoup(page.content,'html.parser')
 lists = soup.find_all('section',class_="listing-search-item")
 
-# Make the CSV file
-with open('housing3.csv','w',encoding='utf8', newline='') as f:
+# Makes  CSV file
+with open('4.csv','w',encoding='utf8', newline='') as f:
     thewrither = writer(f)
     header = ['Title','Location','Price','Area']
     thewrither.writerow(header)
